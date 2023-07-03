@@ -1,20 +1,15 @@
 import "./App.css";
-import styled from "styled-components";
-import { ReactComponent as Bg } from "./images/background.svg";
+import Start from "./pages/start";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <BgImg />
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Start />}></Route>
+      </Routes>
+    </>
   );
 }
-
-const BgImg = styled(Bg)`
-  background-position: top center;
-  height: 100vh;
-  width: 100vw;
-  background-size: cover;
-`;
 
 export default App;
