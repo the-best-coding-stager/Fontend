@@ -60,7 +60,6 @@ const Row = styled.div`
 const Box = styled.div``;
 
 const Container = styled.div`
-  margin-top: 4vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,6 +74,7 @@ const Logo = styled(logo)`
 
 const Title = styled.h2`
   color: #6582fc;
+  margin-bottom: 2.5rem;
 `;
 
 const P = styled.p`
