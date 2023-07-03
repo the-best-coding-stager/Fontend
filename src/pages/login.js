@@ -1,9 +1,20 @@
 import styled from "styled-components";
 import { ReactComponent as logo } from "../images/slang.svg";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Login = () => {
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
+  const handleIdChange = (e) => {
+    setId(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
 
   const handleNavigate = () => {
     navigate("/signup");
@@ -21,17 +32,19 @@ const Login = () => {
           <Title>로그인</Title>
           <Box>
             <P>아이디</P>
-            <Input />
+            <InputId onChange={handleIdChange} value={id} />
           </Box>
           <Box>
             <P>비밀번호</P>
-            <Input />
+            <InputPW onChange={handlePasswordChange} value={password} />
           </Box>
           <Row>
             <P>계정이 없으신가요?</P>
             <A onClick={handleNavigate}>회원가입 하기</A>
           </Row>
-          <Btn>로그인하기</Btn>
+          <Btn id={id} password={password}>
+            로그인 하기
+          </Btn>
         </Container>
       </LoginContainer>
     </>
@@ -60,7 +73,6 @@ const Row = styled.div`
 const Box = styled.div``;
 
 const Container = styled.div`
-  margin-top: 4vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,13 +87,14 @@ const Logo = styled(logo)`
 
 const Title = styled.h2`
   color: #6582fc;
+  margin-bottom: 2.5rem;
 `;
 
 const P = styled.p`
   align-self: flex-start;
 `;
 
-const Input = styled.input`
+const InputId = styled.input`
   width: 330px;
   height: 35px;
   border-radius: 40px;
@@ -90,14 +103,17 @@ const Input = styled.input`
   font-size: 15px;
 `;
 
+const InputPW = styled(InputId)``;
+
 const Btn = styled.button`
-  background-color: #6582fc;
+  background-color: ${(props) =>
+    props.id && props.password ? "#6582fc" : "#E0E6F4"};
   width: 350px;
   height: 70px;
   border-radius: 22px;
   border: none;
   font-weight: 600;
-  color: white;
+  color: ${(props) => (props.id && props.password ? "white" : "#9EACCC")};
   font-size: 22px;
   margin-top: 7rem;
   cursor: pointer;
