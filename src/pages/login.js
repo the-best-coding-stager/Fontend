@@ -17,16 +17,20 @@ const Login = () => {
   };
 
   const handleNavigate = () => {
+    navigate("/");
+  };
+
+  const handleNavigateSignUp = () => {
     navigate("/signup");
   };
 
   const handleNavigateHome = () => {
-    navigate("/");
+    navigate("/home");
   };
 
   return (
     <>
-      <Logo onClick={handleNavigateHome} />
+      <Logo onClick={handleNavigate} />
       <LoginContainer>
         <Container>
           <Title>로그인</Title>
@@ -40,9 +44,9 @@ const Login = () => {
           </Box>
           <Row>
             <P>계정이 없으신가요?</P>
-            <A onClick={handleNavigate}>회원가입 하기</A>
+            <A onClick={handleNavigateSignUp}>회원가입 하기</A>
           </Row>
-          <Btn id={id} password={password}>
+          <Btn id={id} password={password} onClick={handleNavigateHome}>
             로그인 하기
           </Btn>
         </Container>
