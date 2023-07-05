@@ -8,7 +8,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   const handleNavigateQuiz = () => {
-    navigate("/quiz");
+    navigate("/quizstart");
   };
 
   const handleNavigatePost = () => {
@@ -32,6 +32,7 @@ const Home = () => {
               </tr>
             </thead>
             <tbody>
+              {/* 나중에 컴포넌트화하기 */}
               <tr>
                 <Td>1</Td>
                 <Td>유행어1</Td>
