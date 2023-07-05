@@ -1,20 +1,11 @@
 import SideBar from "../components/sidebar";
-import { ReactComponent as logo } from "../images/slang.svg";
-import { ReactComponent as profile } from "../images/profile.svg";
+import Header from "../components/header";
 import { ReactComponent as search } from "../images/search.svg";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate();
-
-  const handleNavigate = () => {
-    navigate("/home");
-  };
-
-  const handleNavigateMyPage = () => {
-    navigate("/mypage");
-  };
 
   const handleNavigateQuiz = () => {
     navigate("/quiz");
@@ -26,10 +17,7 @@ const Home = () => {
 
   return (
     <Container>
-      <Nav>
-        <Logo onClick={handleNavigate} />
-        <Profile onClick={handleNavigateMyPage} />
-      </Nav>
+      <Header />
       <RowContainer>
         <SideBar />
         <SearchContainer>
@@ -170,12 +158,6 @@ const Row = styled.div`
 
 const SearchBtn = styled(search)``;
 
-const Nav = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -184,18 +166,6 @@ const Container = styled.div`
 const SearchContainer = styled(Container)`
   width: 55%;
   margin-left: 3rem;
-`;
-
-const Logo = styled(logo)`
-  width: 5rem;
-  margin-left: 3rem;
-  cursor: pointer;
-`;
-
-const Profile = styled(profile)`
-  width: 5rem;
-  margin-right: 2rem;
-  cursor: pointer;
 `;
 
 export default Home;
