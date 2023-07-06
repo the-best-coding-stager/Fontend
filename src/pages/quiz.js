@@ -10,17 +10,24 @@ const Quiz = () => {
   const navigate = useNavigate();
 
   let question = Questions.Q1[count];
+  const isLastQuestion = count === Questions.Q1.length - 1;
 
   const handleNavigateHome = () => {
     navigate("/home");
   };
 
   const handleCountPlus = () => {
-    if (count < 4) setCount(count + 1); // count++ 로 하면 딜레이 생겨서 count + 1로 해야한다.
+    if (isLastQuestion) {
+      navigate("/quizResult");
+    } else if (count < Questions.Q1.length - 1) {
+      setCount(count + 1);
+    }
   };
 
   const handleCountMinus = () => {
-    if (count > 0) setCount(count - 1); // 문제수 아래로 count 내려가는거 막기
+    if (count > 0) {
+      setCount(count - 1);
+    }
   };
 
   return (
@@ -30,7 +37,9 @@ const Quiz = () => {
       <Center>
         <BtnContainer>
           <PrevBtn onClick={handleCountMinus}>이전 문제</PrevBtn>
-          <NextBtn onClick={handleCountPlus}>다음 문제</NextBtn>
+          <NextBtn onClick={handleCountPlus}>
+            {isLastQuestion ? "제출하기" : "다음 문제"}
+          </NextBtn>
         </BtnContainer>
       </Center>
     </>
