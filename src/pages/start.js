@@ -10,8 +10,8 @@ const Start = () => {
     navigate("/login");
   };
 
-  const handleNavigateSignUp = () => {
-    navigate("/signup");
+  const handleNavigateHome = () => {
+    navigate("/home");
   };
 
   return (
@@ -21,7 +21,7 @@ const Start = () => {
         <h2>유행을 따라잡고 싶다면?</h2>
         <P>궁금한 유행어를 검색하고</P>
         <P>퀴즈를 풀어 최신 유행어를 학습해보세요!</P>
-        <Btn onClick={handleNavigateSignUp}>바로 시작하기</Btn>
+        <Btn onClick={handleNavigateHome}>바로 시작하기</Btn>
         <Row>
           <P>이미 계정이 있나요?</P>
           <A onClick={handleNavigateLogIn}>로그인</A>
